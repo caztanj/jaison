@@ -36,7 +36,7 @@ json_parse_file :: (filename: string, $T: Type, ignore_unknown := true, rename :
 	return success, result;
 }
 
-json_write_native :: (builder: *String_Builder, data: *void, info: *Type_Info, indent_char := "\t", ignore := ignore_by_note, rename := rename_by_note, float_handling: Special_Float_Handling, level := 0) {
+json_write_native :: (builder: *String_Builder, data: *void, info: *Type_Info, indent_char := "\t", ignore := ignore_by_note, rename := rename_by_note, float_handling := Special_Float_Handling.SUPPORT_NULL, level := 0) {
 	if info.type == {
 		case .BOOL;
 			append(builder, ifx (.*)(cast(*bool) data) "true" else "false");
