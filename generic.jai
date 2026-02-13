@@ -264,7 +264,7 @@ get_as :: (val: JSON_Value, $T: Type) -> T {
 				return val.object.*;
 			END;
 		} else {
-			compiler_report("Unsupported type");
+            assert(false, "Unsupported type");
 			return "";
 		}
 	}();
